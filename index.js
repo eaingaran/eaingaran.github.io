@@ -1,12 +1,3 @@
-window.onload = function() {
-    document.body.className = '';
-};
-window.ontouchmove = function() {
-    return false;
-};
-window.onorientationchange = function() {
-    document.body.scrollTop = 0;
-};
 function switchToAbout()  {
   document.getElementById("home").style.display = 'none';
   document.getElementById("aboutme").style.display = 'block';
@@ -59,5 +50,13 @@ function deletingEffect() {
 	};
 	loopDeleting();
 };
-
-typingEffect();
+window.onload = function() {
+    document.body.className = '';
+    typingEffect();
+};
+window.ontouchmove = function() {
+    return false;
+};
+window.onorientationchange = function() {
+    document.body.scrollTop = 0;
+};
