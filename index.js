@@ -1,3 +1,5 @@
+
+alert("js loaded!");
 const words = ["Developer.", "Engineer.", "Introvert.", "Scientist"];
 let i = 0;
 let timer;
