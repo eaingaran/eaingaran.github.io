@@ -1,5 +1,5 @@
 .blink {
-  animation: blink 0.5s infinite;
+  animation: blink 0.75s infinite;
 }
 @keyframes blink{
   to { opacity: .0; }
