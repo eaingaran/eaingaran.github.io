@@ -6,6 +6,7 @@
 }
 .flex {
 	display: flex;
+	text-align: center;
 }
 .header-sub-title {
   color: #ffffff;
