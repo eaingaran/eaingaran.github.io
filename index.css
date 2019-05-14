@@ -1,36 +1,21 @@
-.typewriter {
-     font-family: Aerial, monospace;
-     display: inline-block;
+.blink {
+  animation: blink 0.5s infinite;
 }
- .typewriter-text {
-     display: inline-block;
-     overflow: hidden;
-     letter-spacing: 4px;
-     animation: typing 3s steps(30, end), blink .75s step-end infinite;
-     white-space: nowrap;
-     font-size: 25px;
-     font-weight: 700;
-     border-right: 4px solid white;
-     box-sizing: border-box;
+@keyframes blink{
+  to { opacity: .0; }
 }
- @keyframes typing {
-     from {
-         width: 0% 
-    }
-     to {
-         width: 100% 
-    }
+.flex {
+	display: flex;
 }
- @keyframes blink {
-     from, to {
-         border-color: transparent 
-    }
-     50% {
-         border-color: white;
-    }
+.header-sub-title {
+  color: #fff;
+  font-family: "Courier";
+  font-size: 20px;
+  padding: 0.1em;
 }
 
 .footer	{
 	position: absolute;
 	bottom: 8px;
 	right: 16px;
+}
