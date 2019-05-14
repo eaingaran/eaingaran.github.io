@@ -23,7 +23,7 @@
             <header id="header">
                 <h1>Aingaran Elango</h1>
 			             <h2 style="display: inline; font-size: 28px" id="word"></h2>
-                   <h2 style="display: inline; font-size: 28px" class="blink">|</h2>
+                   <h2 style="display: inline; font-size: 25px" class="blink">|</h2>
                 <nav>
                     <ul>
                         <li><a href="https://linkedin.com/in/eaingaran" class="icon fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
@@ -49,30 +49,5 @@
 			<a href="#" onclick="switchToAbout()" style="display: block;" id="aboutmeBtn" class="icon fa-info-circle" target="_self"><span class="label">About Me</span></a>
       <a href="#" onclick="switchToHome()" style="display: none;" id="homeBtn" class="icon fa-home" target="_self"><span class="label">Home</span></a>
 		</div>
-    <script>
-        window.onload = function() {
-            document.body.className = '';
-        };
-        window.ontouchmove = function() {
-            return false;
-        };
-        window.onorientationchange = function() {
-            document.body.scrollTop = 0;
-        };
-        function switchToAbout()  {
-          document.getElementById("home").style.display = 'none';
-          document.getElementById("aboutme").style.display = 'block';
-
-          document.getElementById("aboutmeBtn").style.display = 'none';
-          document.getElementById("homeBtn").style.display = 'block';
-        }
-        function switchToHome()  {
-          document.getElementById("aboutme").style.display = 'none';
-          document.getElementById("home").style.display = 'block';
-
-          document.getElementById("homeBtn").style.display = 'none';
-          document.getElementById("aboutmeBtn").style.display = 'block';
-        }
-    </script>
     <script src="index.js"></script>
 </body>
