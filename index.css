@@ -9,6 +9,7 @@
 	text-align: center;
 }
 .header-sub-title {
+	display:inline-block;
   color: #ffffff;
   font-size: 25px;
   text-align: center;
