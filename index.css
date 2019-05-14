@@ -1,15 +1,3 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto';
-html, body {
-	background-color: #000;
-}
-h2, a, p {
-	color: #fff;
-	font-family: Roboto;
-	text-decoration: none;
-}
-p>a {
-	color: #fd084a;
-}
 .blink {
   animation: blink 0.5s infinite;
 }
@@ -20,9 +8,9 @@ p>a {
 	display: flex;
 }
 .header-sub-title {
-  color: #fff;
-  font-family: "Courier";
-  font-size: 20px;
+  color: #ffffff;
+  font-family: "Aerial";
+  font-size: 25px;
   padding: 0.1em;
 }
 .footer	{
