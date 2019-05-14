@@ -1,3 +1,27 @@
+window.onload = function() {
+    document.body.className = '';
+};
+window.ontouchmove = function() {
+    return false;
+};
+window.onorientationchange = function() {
+    document.body.scrollTop = 0;
+};
+function switchToAbout()  {
+  document.getElementById("home").style.display = 'none';
+  document.getElementById("aboutme").style.display = 'block';
+
+  document.getElementById("aboutmeBtn").style.display = 'none';
+  document.getElementById("homeBtn").style.display = 'block';
+}
+function switchToHome()  {
+  document.getElementById("aboutme").style.display = 'none';
+  document.getElementById("home").style.display = 'block';
+
+  document.getElementById("homeBtn").style.display = 'none';
+  document.getElementById("aboutmeBtn").style.display = 'block';
+}
+
 const words = ["Developer.", "Engineer.", "Introvert.", "Scientist."];
 let i = 0;
 let timer;
