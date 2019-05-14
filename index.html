@@ -17,15 +17,13 @@
 </head>
 
 <body class="loading">
-    <div id="root">
+    <div id="home" style="display: block;">
         <div id="bg" style="background: none; background-color: #111111;"></div>
         <div id="main">
             <header id="header">
                 <h1>Aingaran Elango</h1>
-		    <div class="flex">
-			<h2 class="header-sub-title" id="word"></h2>
-			<h2 class="header-sub-title blink">|</h2>
-		    </div>
+			             <h2 style="display: inline; font-size: 28px" id="word"></h2>
+                   <h2 style="display: inline; font-size: 28px" class="blink">|</h2>
                 <nav>
                     <ul>
                         <li><a href="https://linkedin.com/in/eaingaran" class="icon fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
@@ -37,10 +35,20 @@
                 </nav>
             </header>
         </div>
-		<div class="footer">
-			<a href="#" class="icon fa-info-circle" target="_blank"><span class="label">Info</span></a>
-		</div>
     </div>
+    <div id="aboutme" style="display: none;">
+      <div id="bg" style="background: none; background-color: #111111;"></div>
+      <div id="main">
+          <header id="header">
+            <h1>Coming Soon...</h1>
+          </header>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+			<a href="#" onclick="switchToAbout()" style="display: block;" id="aboutmeBtn" class="icon fa-info-circle" target="_self"><span class="label">About Me</span></a>
+      <a href="#" onclick="switchToHome()" style="display: none;" id="homeBtn" class="icon fa-home" target="_self"><span class="label">Home</span></a>
+		</div>
     <script>
         window.onload = function() {
             document.body.className = '';
@@ -51,6 +59,20 @@
         window.onorientationchange = function() {
             document.body.scrollTop = 0;
         };
+        function switchToAbout()  {
+          document.getElementById("home").style.display = 'none';
+          document.getElementById("aboutme").style.display = 'block';
+
+          document.getElementById("aboutmeBtn").style.display = 'none';
+          document.getElementById("homeBtn").style.display = 'block';
+        }
+        function switchToHome()  {
+          document.getElementById("aboutme").style.display = 'none';
+          document.getElementById("home").style.display = 'block';
+
+          document.getElementById("homeBtn").style.display = 'none';
+          document.getElementById("aboutmeBtn").style.display = 'block';
+        }
     </script>
     <script src="index.js"></script>
 </body>

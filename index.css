@@ -1,16 +1,8 @@
 .blink {
-  animation: blink 0.75s infinite;
+  animation: blink 0.4s infinite;
 }
 @keyframes blink{
   to { opacity: .0; }
-}
-.flex {
-	display: flex;
-}
-.header-sub-title {
-	right: 50%
-  color: #ffffff;
-  font-size: 25px;
 }
 .footer	{
 	position: absolute;
