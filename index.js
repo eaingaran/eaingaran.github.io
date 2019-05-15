@@ -13,7 +13,7 @@ function switchToHome()  {
   document.getElementById("aboutmeBtn").style.display = 'block';
 }
 
-const words = ["Developer.", "Engineer.", "Gamer.", "Bored."];
+const words = ["Developer.", "Engineer.", "Gamer.", "Lazy.", "Bored."];
 let i = 0;
 let timer;
 
