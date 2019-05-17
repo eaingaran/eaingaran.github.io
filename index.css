@@ -12,8 +12,8 @@
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 100px; /* Set a default minimum width */
-  margin-left: -50px; /* Divide value of min-width by 2 */
+  min-width: 200px; /* Set a default minimum width */
+  margin-left: -100px; /* Divide value of min-width by 2 */
   background-color: inherit; /* blend background color */
   color: #fff; /* White text color */
   text-align: center; /* Centered text */
@@ -22,7 +22,7 @@
   position: fixed; /* Sit on top of the screen */
   z-index: 1; /* Add a z-index if needed */
   left: 50%; /* Center the snackbar */
-  bottom: 30px; /* 30px from the bottom */
+  bottom: 35px; /* 30px from the bottom */
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
@@ -37,20 +37,20 @@
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 35px; opacity: 1;}
 }
 
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 35px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
+  from {bottom: 35px; opacity: 1;} 
   to {bottom: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
+  from {bottom: 35px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
