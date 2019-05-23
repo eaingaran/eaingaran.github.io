@@ -23,23 +23,7 @@ function copyEmail() {
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-
-function switchToAbout()  {
-  document.getElementById("home").style.display = 'none';
-  document.getElementById("aboutme").style.display = 'block';
-
-  document.getElementById("aboutmeBtn").style.display = 'none';
-  document.getElementById("homeBtn").style.display = 'block';
-}
-function switchToHome()  {
-  document.getElementById("aboutme").style.display = 'none';
-  document.getElementById("home").style.display = 'block';
-
-  document.getElementById("homeBtn").style.display = 'none';
-  document.getElementById("aboutmeBtn").style.display = 'block';
-}
-
-const words = ["Developer.", "Engineer.", "Gamer.", "Lazy.", "Bored."];
+const words = ["Developer.", "Engineer.", "Gamer.", "Scientist."];
 let i = 0;
 let timer;
 
@@ -75,14 +59,4 @@ function deletingEffect() {
 		timer = setTimeout(loopDeleting, 200);
 	};
 	loopDeleting();
-};
-window.onload = function() {
-    document.body.className = '';
-    typingEffect();
-};
-window.ontouchmove = function() {
-    return false;
-};
-window.onorientationchange = function() {
-    document.body.scrollTop = 0;
 };
