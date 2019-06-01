@@ -23,7 +23,7 @@ function copyEmail() {
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-const words = ["Developer.", "Engineer.", "Gamer.", "Scientist."];
+const words = ["Developer.", "Problem Solver.", "Engineer.", "Gamer."];
 let i = 0;
 let timer;
 
