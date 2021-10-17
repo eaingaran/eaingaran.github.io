@@ -3,4 +3,4 @@ https://www.aingaran.dev/about.html
 https://www.aingaran.dev/404.html
 https://www.aingaran.dev/achievements.html
 https://www.aingaran.dev/projects.html
-https://www.aingaran.dev/resume/pdf_resume.pdf
+https://www.aingaran.dev/resume/resume_aingaran.pdf
