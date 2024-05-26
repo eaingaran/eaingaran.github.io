@@ -82,7 +82,7 @@ const Home = () => {
           maxWidth: `100vw`,
           mt: 3,
         }}
-        alt="The house from the offer."
+        alt="I'm Google Cloud Certified Image"
         src="/assets/PCA.webp"
         onClick={(event) => {
           event.preventDefault();
