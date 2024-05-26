@@ -68,6 +68,7 @@ const Home = () => {
         <Typography variant="h3" gutterBottom color="primary" align="center">
           Aingaran Elango
         </Typography>
+        <Typography variant="h4" />
         <Typography variant="h5" color="text.secondary" align="center">
           {`<${tag}`}
           <Cursor>|</Cursor>
@@ -82,7 +83,7 @@ const Home = () => {
           mt: 3,
         }}
         alt="The house from the offer."
-        src="/assets/PCA.png"
+        src="/assets/PCA.webp"
         onClick={(event) => {
           event.preventDefault();
           window
