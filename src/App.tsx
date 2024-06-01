@@ -14,7 +14,7 @@ const App = () => {
           maxHeight: "100dvh",
           width: "100dvw",
           flexDirection: "column",
-          transition: "all 0.3s ease-in-out",
+          transition: "all 0.1s ease-in-out",
         }}
       >
         <Header />
@@ -32,7 +32,7 @@ const App = () => {
             flexDirection: "column",
             alignItems: "center",
             overflow: "auto",
-            transition: "all 0.3s ease-in-out",
+            transition: "all 0.1s ease-in-out",
           }}
         >
           <Routes />
