@@ -10,10 +10,11 @@ const App = () => {
         sx={{
           bgcolor: "background.default",
           display: "flex",
-          minHeight: "100vh",
-          maxHeight: "100vh",
-          width: "100vw",
+          minHeight: "100dvh",
+          maxHeight: "100dvh",
+          width: "100dvw",
           flexDirection: "column",
+          transition: "all 0.3s ease-in-out",
         }}
       >
         <Header />
@@ -22,15 +23,16 @@ const App = () => {
           sx={{
             bgcolor: "background.default",
             display: "flex",
-            width: "100vw",
+            width: "100dvw",
             position: "relative",
             mt: "61px",
-            minHeight: "calc(100vh - 122px)",
-            maxHeight: "calc(100vh - 122px)",
+            minHeight: "calc(100dvh - 122px)",
+            maxHeight: "calc(100dvh - 122px)",
             flexGrow: 1,
             flexDirection: "column",
             alignItems: "center",
             overflow: "auto",
+            transition: "all 0.3s ease-in-out",
           }}
         >
           <Routes />
