@@ -12,10 +12,12 @@ import { useTheme } from "@mui/material/styles";
 import { useContext } from "react";
 import { ThemeContext } from "theme";
 import { trackEvent } from "utils/analytics";
+import { tooltipComponentsProps } from "utils/tooltip";
 
 const Footer = () => {
   const theme = useTheme();
   const { switchColorMode } = useContext(ThemeContext);
+  const tooltipProps = tooltipComponentsProps();
 
   const handleEmailCopy = () => {
     trackEvent("Button", "Click", "Copy Email");
@@ -32,22 +34,6 @@ const Footer = () => {
       document.execCommand("copy", true, emailAddress);
       toast.info("Email copied to clipboard");
     }
-  };
-
-  const componentsProps = {
-    tooltip: {
-      sx: {
-        bgcolor:
-          theme.palette.mode === "dark" ? "common.white" : "common.black",
-        "& .MuiTooltip-arrow": {
-          color:
-            theme.palette.mode === "dark" ? "common.white" : "common.black",
-        },
-        color: theme.palette.mode === "dark" ? "common.black" : "common.white",
-        opacity: "80%",
-        borderRadius: 3,
-      },
-    },
   };
 
   return (
@@ -73,7 +59,7 @@ const Footer = () => {
               title="Github Profile"
               arrow
               placement="top"
-              componentsProps={componentsProps}
+              componentsProps={tooltipProps}
             >
               <GitHubIcon
                 sx={{ mx: 1, color: "text.primary" }}
@@ -95,7 +81,7 @@ const Footer = () => {
               title="LinkedIn Profile"
               arrow
               placement="top"
-              componentsProps={componentsProps}
+              componentsProps={tooltipProps}
             >
               <LinkedInIcon
                 sx={{ mx: 1, color: "text.primary" }}
@@ -117,7 +103,7 @@ const Footer = () => {
               title="Download Resume"
               arrow
               placement="top"
-              componentsProps={componentsProps}
+              componentsProps={tooltipProps}
             >
               <SaveAltIcon
                 sx={{ mx: 1, color: "text.primary" }}
@@ -135,7 +121,7 @@ const Footer = () => {
               title="Copy Email"
               arrow
               placement="top"
-              componentsProps={componentsProps}
+              componentsProps={tooltipProps}
             >
               <EmailIcon
                 sx={{ mx: 1, color: "text.primary" }}
@@ -154,7 +140,7 @@ const Footer = () => {
               }
               arrow
               placement="top"
-              componentsProps={componentsProps}
+              componentsProps={tooltipProps}
             >
               {theme.palette.mode === "dark" ? (
                 <LightModeOutlinedIcon

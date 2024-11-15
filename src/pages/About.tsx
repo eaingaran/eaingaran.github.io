@@ -1,32 +1,13 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import AppsIcon from "@mui/icons-material/Apps";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { trackEvent } from "utils/analytics";
+import { useNavigate } from "react-router-dom";
+import { buttonSX } from "utils/buttons";
 
 const About = () => {
-  const buttonSX = {
-    mt: 2,
-    alignContent: "center",
-    color: "text.primary",
-    backgroundColor: "transparent",
-    borderBlockColor: "text.primary",
-    borderColor: "text.primary",
-    outline: "none",
-    "&:hover": {
-      borderBlockColor: "text.primary",
-      borderColor: "text.primary",
-      backgroundColor: "transparent",
-      boxShadow: "none",
-      outline: "none",
-    },
-    "&:focus": {
-      borderBlockColor: "text.primary",
-      borderColor: "text.primary",
-      backgroundColor: "transparent",
-      boxShadow: "none",
-      outline: "none",
-    },
-  };
+  const navigate = useNavigate();
 
   return (
     <>
@@ -89,6 +70,18 @@ const About = () => {
               startIcon={<AlternateEmailIcon />}
             >
               Contact Me
+            </Button>
+            <Button
+              variant="outlined"
+              disableElevation={true}
+              sx={buttonSX}
+              onClick={() => {
+                trackEvent("Button", "Click", "Explore");
+                navigate("/products");
+              }}
+              startIcon={<AppsIcon />}
+            >
+              Explore
             </Button>
             <Button
               variant="outlined"

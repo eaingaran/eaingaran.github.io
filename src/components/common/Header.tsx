@@ -1,28 +1,12 @@
 import { Home as HomeIcon, Info as InfoIcon } from "@mui/icons-material";
 import { Box, Container, Grid, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
 import { trackEvent } from "utils/analytics";
+import { tooltipComponentsProps } from "utils/tooltip";
 
 const Header = () => {
-  const theme = useTheme();
   const navigate = useNavigate();
-
-  const componentsProps = {
-    tooltip: {
-      sx: {
-        bgcolor:
-          theme.palette.mode === "dark" ? "common.white" : "common.black",
-        "& .MuiTooltip-arrow": {
-          color:
-            theme.palette.mode === "dark" ? "common.white" : "common.black",
-        },
-        color: theme.palette.mode === "dark" ? "common.black" : "common.white",
-        opacity: "80%",
-        borderRadius: 3,
-      },
-    },
-  };
+  const tooltipProps = tooltipComponentsProps();
 
   return (
     <>
@@ -46,7 +30,7 @@ const Header = () => {
               title="Home Page"
               arrow={true}
               placement="bottom"
-              componentsProps={componentsProps}
+              componentsProps={tooltipProps}
             >
               <HomeIcon
                 sx={{ mx: 1, color: "text.primary" }}
@@ -63,7 +47,7 @@ const Header = () => {
               title="About Page"
               arrow={true}
               placement="bottom"
-              componentsProps={componentsProps}
+              componentsProps={tooltipProps}
             >
               <InfoIcon
                 sx={{ mx: 1, color: "text.primary" }}
