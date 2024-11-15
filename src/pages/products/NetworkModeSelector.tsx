@@ -29,12 +29,7 @@ import { trackEvent } from "utils/analytics";
 const NetworkModeSelector: React.FC = () => {
   const theme = useTheme();
   const navigate = useNavigate();
-  const [currentSlide, setCurrentSlide] = useState(0);
   const tooltipProps = tooltipComponentsProps();
-
-  const handleSlideChange = (index: number) => {
-    setCurrentSlide(index);
-  };
 
   return (
     <Container maxWidth="md" sx={{ py: 5 }}>
@@ -89,7 +84,6 @@ const NetworkModeSelector: React.FC = () => {
           transitionTime={500}
           autoPlay={true}
           infiniteLoop={true}
-          onChange={handleSlideChange}
         >
           {[
             "Warning",
