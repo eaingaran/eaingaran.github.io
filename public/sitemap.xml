@@ -20,4 +20,19 @@
     <lastmod>2024-11-15</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://aingaran.dev/products</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aingaran.dev/products/network-mode-selector</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aingaran.dev/products/gh-agent-cloud-run</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

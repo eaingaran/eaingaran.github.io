@@ -5,6 +5,7 @@ import PageNotFound from "pages/PageNotFound";
 import PrivacyPolicy from "pages/PrivacyPolicy";
 import Products from "pages/Products";
 import NetworkModeSelector from "pages/products/NetworkModeSelector";
+import GhAgentCloudRun from "pages/products/GhAgentCloudRun";
 
 const MyRoutes = () => {
   return (
@@ -16,6 +17,10 @@ const MyRoutes = () => {
       <Route
         path="/products/network-mode-selector"
         element={<NetworkModeSelector />}
+      />
+      <Route
+        path="/products/gh-agent-cloud-run"
+        element={<GhAgentCloudRun />}
       />
       <Route path="*" element={<PageNotFound />} />
     </Routes>

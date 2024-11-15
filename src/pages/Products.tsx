@@ -2,16 +2,25 @@ import React from "react";
 import { Typography, Container, Grid, Card, CardContent } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { trackEvent } from "utils/analytics";
+import { useTheme } from "@mui/material/styles";
 
 const Products: React.FC = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const products = [
     {
       name: "Network Mode Selector",
       description: "Take control of your network connection mode.",
       link: "/products/network-mode-selector",
-      image: "/assets/products/network-mode-selector/icon.webp",
+      image: `/assets/products/network-mode-selector/${theme.palette.mode}/icon.webp`,
+    },
+    {
+      name: "GitHub Agent on CloudRun",
+      description:
+        "Run your GitHub Actions with self-hosted runners on Google Cloud Run for scalability and cost-efficiency.",
+      link: "/products/gh-agent-cloud-run",
+      image: `/assets/products/gh-agent-cloud-run/${theme.palette.mode}/icon.webp`,
     },
   ];
 
