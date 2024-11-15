@@ -1,5 +1,6 @@
 import { Typography, Box, keyframes, styled } from "@mui/material";
 import { useEffect, useState } from "react";
+import { trackEvent } from "utils/analytics";
 
 const blink = keyframes`
   50% {
@@ -85,11 +86,12 @@ const Home = () => {
         alt="I'm Google Cloud Certified Image"
         src="/assets/PCA.webp"
         onClick={(event) => {
+          trackEvent("Button", "Click", "Credentials");
           event.preventDefault();
           window
             .open(
               "https://google.accredible.com/profile/aingaran/wallet",
-              "_blank"
+              "_blank",
             )
             ?.focus();
         }}

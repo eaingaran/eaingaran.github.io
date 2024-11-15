@@ -1,6 +1,7 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import { trackEvent } from "utils/analytics";
 
 const About = () => {
   const buttonSX = {
@@ -82,6 +83,7 @@ const About = () => {
               disableElevation={true}
               sx={buttonSX}
               onClick={() => {
+                trackEvent("Button", "Click", "Open Email");
                 window.location.href = "mailto:me@aingaran.dev";
               }}
               startIcon={<AlternateEmailIcon />}
@@ -93,11 +95,12 @@ const About = () => {
               disableElevation={true}
               sx={buttonSX}
               onClick={(event) => {
+                trackEvent("Button", "Click", "Credentials");
                 event.preventDefault();
                 window
                   .open(
                     "https://google.accredible.com/profile/aingaran/wallet",
-                    "_blank"
+                    "_blank",
                   )
                   ?.focus();
               }}

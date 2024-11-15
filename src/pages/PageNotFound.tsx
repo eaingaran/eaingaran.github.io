@@ -1,5 +1,6 @@
 import { Typography, Grid, Container, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { trackEvent } from "utils/analytics";
 
 function PageNotFound() {
   const navigate = useNavigate();
@@ -16,7 +17,13 @@ function PageNotFound() {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Button variant="outlined" onClick={() => navigate("/")}>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              trackEvent("Link", "Click", "Home");
+              navigate("/");
+            }}
+          >
             Return Home?
           </Button>
         </Grid>
