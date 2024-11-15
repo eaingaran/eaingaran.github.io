@@ -72,7 +72,13 @@ const NetworkModeSelector: React.FC = () => {
         over your device's network mode.
       </Typography>
 
-      <Box sx={{ maxWidth: "20vw", margin: "0 auto", mb: 4 }}>
+      <Box
+        sx={{
+          maxWidth: "75vw",
+          margin: "0 auto",
+          mb: 4,
+        }}
+      >
         <Carousel
           showArrows={true}
           showStatus={false}

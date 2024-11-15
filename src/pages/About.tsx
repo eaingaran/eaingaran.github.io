@@ -54,7 +54,8 @@ const About = () => {
           </Typography>
           <Box
             sx={{
-              display: "flex",
+              display: { xs: "flex", sm: "flex" },
+              flexDirection: { xs: "column", sm: "row" },
               position: "relative",
               justifyContent: "space-around",
             }}
