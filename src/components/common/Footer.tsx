@@ -11,10 +11,28 @@ import { Slide, ToastContainer, toast } from "react-toastify";
 import { useTheme } from "@mui/material/styles";
 import { useContext } from "react";
 import { ThemeContext } from "theme";
+import { trackEvent } from "utils/analytics";
 
 const Footer = () => {
   const theme = useTheme();
   const { switchColorMode } = useContext(ThemeContext);
+
+  const handleEmailCopy = () => {
+    trackEvent("Button", "Click", "Copy Email");
+    const emailAddress = "contact@aingaran.dev";
+    if ("clipboard" in navigator) {
+      navigator.clipboard
+        .writeText(emailAddress)
+        .then(() => toast.info("Email copied to clipboard"))
+        .catch((err) => {
+          console.error("Failed to copy email: ", err);
+          toast.error("Could not copy email");
+        });
+    } else {
+      document.execCommand("copy", true, emailAddress);
+      toast.info("Email copied to clipboard");
+    }
+  };
 
   const componentsProps = {
     tooltip: {
@@ -49,75 +67,84 @@ const Footer = () => {
       >
         <Container maxWidth="lg">
           <Grid container justifyContent="space-between" alignItems="center">
+            {/* GitHub */}
             <Tooltip
               describeChild
               title="Github Profile"
-              arrow={true}
+              arrow
               placement="top"
               componentsProps={componentsProps}
             >
               <GitHubIcon
                 sx={{ mx: 1, color: "text.primary" }}
                 onClick={() => {
-                  window.open("https://github.com/eaingaran", "_blank");
+                  trackEvent("Link", "Click", "GitHub");
+                  window.open(
+                    "https://github.com/eaingaran",
+                    "_blank",
+                    "noopener",
+                  );
                 }}
                 fontSize="large"
               />
             </Tooltip>
+
+            {/* LinkedIn */}
             <Tooltip
               describeChild
               title="LinkedIn Profile"
-              arrow={true}
+              arrow
               placement="top"
               componentsProps={componentsProps}
             >
               <LinkedInIcon
                 sx={{ mx: 1, color: "text.primary" }}
                 onClick={() => {
+                  trackEvent("Link", "Click", "LinkedIn");
                   window.open(
                     "https://www.linkedin.com/in/eaingaran",
-                    "_blank"
+                    "_blank",
+                    "noopener",
                   );
                 }}
                 fontSize="large"
               />
             </Tooltip>
+
+            {/* Download CV */}
             <Tooltip
               describeChild
               title="Download Resume"
-              arrow={true}
+              arrow
               placement="top"
               componentsProps={componentsProps}
             >
               <SaveAltIcon
                 sx={{ mx: 1, color: "text.primary" }}
                 onClick={() => {
-                  window.location.href = "/resume_aingaran_elango.pdf";
+                  trackEvent("Button", "Click", "Download CV");
+                  window.location.href = "/cv_aingaran_elango.pdf";
                 }}
                 fontSize="large"
               />
             </Tooltip>
+
+            {/* Copy Email */}
             <Tooltip
               describeChild
               title="Copy Email"
-              arrow={true}
+              arrow
               placement="top"
               componentsProps={componentsProps}
             >
               <EmailIcon
                 sx={{ mx: 1, color: "text.primary" }}
-                onClick={() => {
-                  if ("clipboard" in navigator) {
-                    navigator.clipboard.writeText("me@aingaran.dev");
-                  } else {
-                    // handle internet explorer
-                    document.execCommand("copy", true, "me@aingaran.dev");
-                  }
-                  toast.info("Email copied to clipboard");
-                }}
+                onClick={handleEmailCopy}
                 fontSize="large"
               />
             </Tooltip>
+
+            {/* Color Mode Switch */}
             <Tooltip
               describeChild
               title={
@@ -125,24 +152,20 @@ const Footer = () => {
                   ? "Switch to Light Mode"
                   : "Switch to Dark Mode"
               }
-              arrow={true}
+              arrow
               placement="top"
               componentsProps={componentsProps}
             >
               {theme.palette.mode === "dark" ? (
                 <LightModeOutlinedIcon
                   sx={{ mx: 1, color: "text.primary" }}
-                  onClick={() => {
-                    switchColorMode();
-                  }}
+                  onClick={switchColorMode}
                   fontSize="large"
                 />
               ) : (
                 <DarkModeOutlinedIcon
                   sx={{ mx: 1, color: "text.primary" }}
-                  onClick={() => {
-                    switchColorMode();
-                  }}
+                  onClick={switchColorMode}
                   fontSize="large"
                 />
               )}
@@ -156,12 +179,12 @@ const Footer = () => {
         autoClose={3000}
         stacked={false}
         hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick={true}
+        newestOnTop
+        closeOnClick
         rtl={false}
         pauseOnFocusLoss={false}
-        draggable={true}
-        pauseOnHover={true}
+        draggable
+        pauseOnHover
         theme={theme.palette.mode}
         transition={Slide}
       />

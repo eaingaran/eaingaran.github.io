@@ -2,6 +2,7 @@ import { Home as HomeIcon, Info as InfoIcon } from "@mui/icons-material";
 import { Box, Container, Grid, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
+import { trackEvent } from "utils/analytics";
 
 const Header = () => {
   const theme = useTheme();
@@ -49,7 +50,10 @@ const Header = () => {
             >
               <HomeIcon
                 sx={{ mx: 1, color: "text.primary" }}
-                onClick={() => navigate("/")}
+                onClick={() => {
+                  trackEvent("Link", "Click", "Home");
+                  navigate("/");
+                }}
                 fontSize="large"
               />
             </Tooltip>
@@ -63,7 +67,10 @@ const Header = () => {
             >
               <InfoIcon
                 sx={{ mx: 1, color: "text.primary" }}
-                onClick={() => navigate("/about")}
+                onClick={() => {
+                  trackEvent("Link", "Click", "About");
+                  navigate("/about");
+                }}
                 fontSize="large"
               />
             </Tooltip>

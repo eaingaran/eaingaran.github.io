@@ -2,8 +2,23 @@ import { Box } from "@mui/material";
 import Footer from "components/common/Footer";
 import Header from "components/common/Header";
 import Routes from "Routes";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import initializeAnalytics from "utils/analytics";
+import ReactGA from "react-ga4";
 
 const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    initializeAnalytics();
+  }, []);
+
+  useEffect(() => {
+    // Track page views whenever the location changes
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+  }, [location]);
+
   return (
     <>
       <Box
