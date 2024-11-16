@@ -85,6 +85,7 @@ const Home = () => {
         }}
         alt="I'm Google Cloud Certified Image"
         src="/assets/PCA.webp"
+        loading="lazy"
         onClick={(event) => {
           trackEvent("Button", "Click", "Credentials");
           event.preventDefault();

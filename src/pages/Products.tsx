@@ -36,10 +36,17 @@ const Products: React.FC = () => {
         My Apps
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} alignItems="center" justifyContent="center">
         {products.map((product) => (
-          <Grid item xs={12} sm={6} md={4} key={product.name}>
-            {" "}
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={product.name}
+            display="flex"
+            justifyContent="center"
+          >
             <Card
               sx={{
                 maxWidth: 200,
@@ -57,8 +64,9 @@ const Products: React.FC = () => {
               {product.image && (
                 <img
                   src={product.image}
-                  alt={`${product.name} screenshot`}
+                  alt={`${product.name} app icon`}
                   style={{ width: "100%" }}
+                  loading="lazy"
                 />
               )}
               <CardContent>

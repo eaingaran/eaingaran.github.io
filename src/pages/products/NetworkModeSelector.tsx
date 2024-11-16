@@ -102,6 +102,7 @@ const NetworkModeSelector: React.FC = () => {
               <img
                 src={`/assets/products/network-mode-selector/${theme.palette.mode}/${name}.webp`}
                 alt={`${name} ${index + 1}`}
+                loading="lazy"
               />
             </div>
           ))}
