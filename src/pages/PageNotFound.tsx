@@ -6,7 +6,7 @@ function PageNotFound() {
   const navigate = useNavigate();
 
   return (
-    <Container maxWidth="md" sx={{ textAlign: "center", py: 10 }}>
+    <Container maxWidth="md" sx={{ textAlign: "center", py: 20 }}>
       <Grid container spacing={4} alignItems="center" justifyContent="center">
         <Grid item xs={12}>
           <Typography variant="h1" gutterBottom color="text.primary">

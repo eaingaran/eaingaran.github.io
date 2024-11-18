@@ -15,7 +15,6 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // Track page views whenever the location changes
     ReactGA.send({ hitType: "pageview", page: location.pathname });
   }, [location]);
 
@@ -25,8 +24,7 @@ const App = () => {
         sx={{
           bgcolor: "background.default",
           display: "flex",
-          minHeight: "100dvh",
-          maxHeight: "100dvh",
+          height: "100dvh",
           width: "100dvw",
           flexDirection: "column",
           transition: "all 0.1s ease-in-out",
@@ -38,12 +36,9 @@ const App = () => {
           sx={{
             bgcolor: "background.default",
             display: "flex",
+            flex: 1,
             width: "100dvw",
             position: "relative",
-            mt: "61px",
-            minHeight: "calc(100dvh - 122px)",
-            maxHeight: "calc(100dvh - 122px)",
-            flexGrow: 1,
             flexDirection: "column",
             alignItems: "center",
             overflow: "auto",

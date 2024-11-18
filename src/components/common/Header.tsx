@@ -21,6 +21,7 @@ const Header = () => {
           paddingBottom: 3,
           width: "100vw",
           height: "25px",
+          zIndex: 1200,
         }}
       >
         <Container maxWidth="lg">

@@ -3,7 +3,7 @@ import { Typography, Container, Link } from "@mui/material";
 
 const PrivacyPolicy: React.FC = () => {
   return (
-    <Container maxWidth="md" sx={{ py: 5 }}>
+    <Container maxWidth="md" sx={{ py: 10 }}>
       <Typography
         variant="h2"
         component="h1"

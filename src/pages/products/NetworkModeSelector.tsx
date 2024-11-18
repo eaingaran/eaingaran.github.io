@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Container,
@@ -11,12 +11,15 @@ import {
   IconButton,
   Button,
   Tooltip,
+  Modal,
+  Fade,
 } from "@mui/material";
 import {
   NavigateBefore as NavigateBeforeIcon,
   InfoOutlined as InfoOutlinedIcon,
   GitHub as GitHubIcon,
   Shop as GooglePlay,
+  Close,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
@@ -31,8 +34,20 @@ const NetworkModeSelector: React.FC = () => {
   const navigate = useNavigate();
   const tooltipProps = tooltipComponentsProps();
 
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const handleOpen = (imageUrl: string) => {
+    setSelectedImage(imageUrl);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <Container maxWidth="md" sx={{ py: 5 }}>
+    <Container maxWidth="md" sx={{ py: 10 }}>
       <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
         <Tooltip
           title="Explore all apps"
@@ -74,9 +89,14 @@ const NetworkModeSelector: React.FC = () => {
 
       <Box
         sx={{
-          maxWidth: "75vw",
           margin: "0 auto",
           mb: 4,
+          "& .carousel .slide img": {
+            maxWidth: "70dvh",
+            maxHeight: "70dvh",
+            width: "auto",
+            height: "auto",
+          },
         }}
       >
         <Carousel
@@ -98,7 +118,14 @@ const NetworkModeSelector: React.FC = () => {
             "Network_Mode_Closed",
             "Network_Mode_Open",
           ].map((name, index) => (
-            <div key={index}>
+            <div
+              key={index}
+              onClick={() =>
+                handleOpen(
+                  `/assets/products/network-mode-selector/${theme.palette.mode}/${name}.webp`,
+                )
+              }
+            >
               <img
                 src={`/assets/products/network-mode-selector/${theme.palette.mode}/${name}.webp`}
                 alt={`${name} ${index + 1}`}
@@ -392,24 +419,38 @@ const NetworkModeSelector: React.FC = () => {
       <Grid container spacing={2} justifyContent="space-around">
         {" "}
         <Grid item>
-          <Link
-            href="https://play.google.com/store/apps/details?id=dev.aingaran.networkmodeselector"
-            target="_blank"
-            rel="noopener"
-            onClick={() =>
-              trackEvent("Link", "Click", "Play Store - Network Mode Selector")
-            }
+          <Tooltip
+            title="Play Store link is not live, yet."
+            describeChild
+            arrow
+            placement="top"
+            componentsProps={tooltipProps}
           >
-            <Button
-              variant="outlined"
-              disableElevation={true}
-              sx={buttonSX}
-              color="primary"
-              startIcon={<GooglePlay />}
+            <Link
+              //href="https://play.google.com/store/apps/details?id=dev.aingaran.networkmodeselector"
+              //target="_blank"
+              href="#"
+              rel="noopener"
+              onClick={() =>
+                trackEvent(
+                  "Link",
+                  "Click",
+                  "Play Store - Network Mode Selector",
+                )
+              }
             >
-              Download from Play Store
-            </Button>
-          </Link>
+              <Button
+                variant="outlined"
+                disableElevation={true}
+                sx={buttonSX}
+                color="primary"
+                startIcon={<GooglePlay />}
+                disabled
+              >
+                Download from Play Store
+              </Button>
+            </Link>
+          </Tooltip>
         </Grid>
         <Grid item>
           {" "}
@@ -441,6 +482,53 @@ const NetworkModeSelector: React.FC = () => {
         ability to override user preferences to optimize network connectivity.
         However, in almost all scenarios, the app will function as expected.
       </Typography>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+      >
+        <Fade in={open}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              bgcolor: "background.paper",
+              boxShadow: 24,
+              p: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+            }}
+          >
+            <IconButton
+              aria-label="close"
+              onClick={handleClose}
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                zIndex: 10,
+                backgroundColor:
+                  theme.palette.mode === "dark" ? "grey.700" : "white",
+              }}
+            >
+              <Close />
+            </IconButton>
+            <img
+              src={selectedImage}
+              alt="Zoomed"
+              style={{
+                maxWidth: "90vw",
+                maxHeight: "90vh",
+              }}
+            />
+          </Box>
+        </Fade>
+      </Modal>
     </Container>
   );
 };

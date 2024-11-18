@@ -1,5 +1,13 @@
 import React from "react";
-import { Typography, Container, Grid, Card, CardContent } from "@mui/material";
+import {
+  Typography,
+  Container,
+  Grid,
+  Card,
+  CardContent,
+  CardActions,
+  Chip,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { trackEvent } from "utils/analytics";
 import { useTheme } from "@mui/material/styles";
@@ -14,18 +22,22 @@ const Products: React.FC = () => {
       description: "Take control of your network connection mode.",
       link: "/products/network-mode-selector",
       image: `/assets/products/network-mode-selector/${theme.palette.mode}/icon.webp`,
+      year: 2024,
+      tags: ["Android", "Utility"],
     },
     {
-      name: "GitHub Agent on CloudRun",
+      name: "CloudRun GitHub Agent",
       description:
         "Run your GitHub Actions with self-hosted runners on Google Cloud Run for scalability and cost-efficiency.",
       link: "/products/gh-agent-cloud-run",
       image: `/assets/products/gh-agent-cloud-run/${theme.palette.mode}/icon.webp`,
+      year: 2022,
+      tags: ["DevOps", "Cloud", "Cost Saving"],
     },
   ];
 
   return (
-    <Container maxWidth="md" sx={{ py: 5 }}>
+    <Container maxWidth="md" sx={{ py: 10 }}>
       <Typography
         variant="h2"
         component="h1"
@@ -36,7 +48,7 @@ const Products: React.FC = () => {
         My Apps
       </Typography>
 
-      <Grid container spacing={3} alignItems="center" justifyContent="center">
+      <Grid container spacing={3} alignItems="stretch" justifyContent="center">
         {products.map((product) => (
           <Grid
             item
@@ -49,12 +61,14 @@ const Products: React.FC = () => {
           >
             <Card
               sx={{
-                maxWidth: 200,
+                maxWidth: 345,
                 transition: "transform 0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                   boxShadow: 3,
                 },
+                display: "flex",
+                flexDirection: "column",
               }}
               onClick={() => {
                 trackEvent("Card", "Click", product.name);
@@ -70,18 +84,25 @@ const Products: React.FC = () => {
                 />
               )}
               <CardContent>
-                <Typography
-                  variant="h6"
-                  component="h3"
-                  color="text.primary"
-                  gutterBottom
-                >
+                <Typography variant="h6" component="h3" color="text.primary">
                   {product.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="caption" color="text.secondary">
+                  Created in {product.year}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mt: 2 }}
+                >
                   {product.description}
                 </Typography>
               </CardContent>
+              <CardActions sx={{ mt: "auto" }}>
+                {product.tags.map((tag) => (
+                  <Chip key={tag} label={tag} size="small" sx={{ ml: 1 }} />
+                ))}
+              </CardActions>
             </Card>
           </Grid>
         ))}

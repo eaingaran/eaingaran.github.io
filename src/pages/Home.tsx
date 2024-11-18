@@ -1,6 +1,5 @@
 import { Typography, Box, keyframes, styled } from "@mui/material";
 import { useEffect, useState } from "react";
-import { trackEvent } from "utils/analytics";
 
 const blink = keyframes`
   50% {
@@ -9,7 +8,7 @@ const blink = keyframes`
 `;
 
 const Cursor = styled("span")({
-  animation: `${blink} 600ms infinite steps(1)`, // Apply blink animation with steps for a crisp on/off effect
+  animation: `${blink} 600ms infinite steps(1)`,
 });
 
 const Home = () => {
@@ -21,9 +20,9 @@ const Home = () => {
   useEffect(() => {
     const tagArray = [
       "Problem Solver.",
-      "Cloud Architect.",
+      "Architect.",
       "Engineer.",
-      "Developer.",
+      "Leader.",
       "Gamer.",
     ];
 
@@ -62,41 +61,35 @@ const Home = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
+          flex: 1,
           alignItems: "center",
-          mt: 3,
+          justifyContent: "center",
         }}
       >
-        <Typography variant="h3" gutterBottom color="primary" align="center">
+        <Typography
+          variant="h3"
+          color="primary"
+          align="center"
+          sx={{
+            fontSize: "clamp(2rem, 8vw, 8rem)",
+          }}
+        >
           Aingaran Elango
         </Typography>
         <Typography variant="h4" />
-        <Typography variant="h5" color="text.secondary" align="center">
+        <Typography
+          variant="h5"
+          color="text.secondary"
+          align="center"
+          sx={{
+            fontSize: "clamp(1rem, 5vw, 5rem)",
+          }}
+        >
           {`<${tag}`}
           <Cursor>|</Cursor>
           {" />"}
         </Typography>
       </Box>
-      <Box
-        component="img"
-        sx={{
-          maxHeight: `calc(100vh - 300px)`,
-          maxWidth: `100vw`,
-          mt: 3,
-        }}
-        alt="I'm Google Cloud Certified Image"
-        src="/assets/PCA.webp"
-        loading="lazy"
-        onClick={(event) => {
-          trackEvent("Button", "Click", "Credentials");
-          event.preventDefault();
-          window
-            .open(
-              "https://google.accredible.com/profile/aingaran/wallet",
-              "_blank",
-            )
-            ?.focus();
-        }}
-      />
     </>
   );
 };

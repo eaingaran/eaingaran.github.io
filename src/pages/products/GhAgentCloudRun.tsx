@@ -26,7 +26,7 @@ const GhAgentCloudRun: React.FC = () => {
   const tooltipProps = tooltipComponentsProps();
 
   return (
-    <Container maxWidth="md" sx={{ py: 5 }}>
+    <Container maxWidth="md" sx={{ py: 10 }}>
       <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
         <Tooltip
           title="Explore all apps"
