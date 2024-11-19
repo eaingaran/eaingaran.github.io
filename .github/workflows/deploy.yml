@@ -39,8 +39,17 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      # - name: Handle 404
-      #   run: cp ./dist/index.html ./dist/404.html
+      # Handle 404 caused by GitHub pages.
+      # This is done for important pages that requires machine access (SEO Indexing, Google Privacy policy review, etc.,)
+      - name: Handle 404
+        run: |
+          for file in about.html products.html privacy.html; do
+            cp ./dist/index.html ./dist/"$file"
+          done
+          mkdir -p ./dist/products
+          for file in network-mode-selector.html gh-agent-cloud-run.html; do
+            cp ./dist/index.html ./dist/products/"$file"
+          done
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
