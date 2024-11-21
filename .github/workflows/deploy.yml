@@ -47,7 +47,7 @@ jobs:
             cp ./dist/index.html ./dist/"$file"
           done
           mkdir -p ./dist/products
-          for file in network-mode-selector.html gh-agent-cloud-run.html; do
+          for file in network-mode-selector.html gh-agent-cloud-run.html llmctx.html; do
             cp ./dist/index.html ./dist/products/"$file"
           done
       - name: Setup Pages

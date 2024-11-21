@@ -34,6 +34,15 @@ const Products: React.FC = () => {
       year: 2022,
       tags: ["DevOps", "Cloud", "Cost Saving"],
     },
+    {
+      name: "llmctx",
+      description:
+        "Prepare your source code for use with large language models (LLMs).",
+      link: "/products/llmctx",
+      image: `/assets/products/llmctx/icon.webp`,
+      year: 2024,
+      tags: ["DevTools", "LLM", "CLI", "Rust"],
+    },
   ];
 
   return (

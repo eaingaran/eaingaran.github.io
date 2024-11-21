@@ -6,6 +6,7 @@ import PrivacyPolicy from "pages/PrivacyPolicy";
 import Products from "pages/Products";
 import NetworkModeSelector from "pages/products/NetworkModeSelector";
 import GhAgentCloudRun from "pages/products/GhAgentCloudRun";
+import Llmctx from "pages/products/Llmctx";
 
 const MyRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const MyRoutes = () => {
         path="/products/gh-agent-cloud-run"
         element={<GhAgentCloudRun />}
       />
+      <Route path="/products/llmctx" element={<Llmctx />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
