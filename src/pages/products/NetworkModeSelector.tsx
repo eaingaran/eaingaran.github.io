@@ -419,38 +419,24 @@ const NetworkModeSelector: React.FC = () => {
       <Grid container spacing={2} justifyContent="space-around">
         {" "}
         <Grid item>
-          <Tooltip
-            title="Play Store link is not live, yet."
-            describeChild
-            arrow
-            placement="top"
-            componentsProps={tooltipProps}
+          <Link
+            href="https://play.google.com/store/apps/details?id=dev.aingaran.networkmodeselector"
+            target="_blank"
+            rel="noopener"
+            onClick={() =>
+              trackEvent("Link", "Click", "Play Store - Network Mode Selector")
+            }
           >
-            <Link
-              //href="https://play.google.com/store/apps/details?id=dev.aingaran.networkmodeselector"
-              //target="_blank"
-              href="#"
-              rel="noopener"
-              onClick={() =>
-                trackEvent(
-                  "Link",
-                  "Click",
-                  "Play Store - Network Mode Selector",
-                )
-              }
+            <Button
+              variant="outlined"
+              disableElevation={true}
+              sx={buttonSX}
+              color="primary"
+              startIcon={<GooglePlay />}
             >
-              <Button
-                variant="outlined"
-                disableElevation={true}
-                sx={buttonSX}
-                color="primary"
-                startIcon={<GooglePlay />}
-                disabled
-              >
-                Download from Play Store
-              </Button>
-            </Link>
-          </Tooltip>
+              Download from Play Store
+            </Button>
+          </Link>
         </Grid>
         <Grid item>
           {" "}
