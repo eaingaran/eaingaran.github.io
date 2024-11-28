@@ -99,13 +99,16 @@ const About = () => {
                 variant="outlined"
                 disableElevation={true}
                 sx={buttonSX}
-                onClick={() => {
-                  trackEvent("Button", "Click", "Open Email");
-                  window.location.href = "mailto:contact@aingaran.dev";
+                onClick={(event) => {
+                  trackEvent("Button", "Click", "Schedule_Meeting");
+                  event.preventDefault();
+                  window
+                    .open("https://schedule.aingaran.dev/aingaran", "_blank")
+                    ?.focus();
                 }}
                 startIcon={<AlternateEmailIcon />}
               >
-                Contact Me
+                Meet Me
               </Button>
               <Button
                 variant="outlined"
