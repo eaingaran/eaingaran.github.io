@@ -1,5 +1,4 @@
 import { Box, Button, Container, Typography } from "@mui/material";
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import AppsIcon from "@mui/icons-material/Apps";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { trackEvent } from "utils/analytics";
