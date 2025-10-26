@@ -99,21 +99,6 @@ const About = () => {
                 variant="outlined"
                 disableElevation={true}
                 sx={buttonSX}
-                onClick={(event) => {
-                  trackEvent("Button", "Click", "Schedule_Meeting");
-                  event.preventDefault();
-                  window
-                    .open("https://schedule.aingaran.dev/aingaran", "_blank")
-                    ?.focus();
-                }}
-                startIcon={<AlternateEmailIcon />}
-              >
-                Meet Me
-              </Button>
-              <Button
-                variant="outlined"
-                disableElevation={true}
-                sx={buttonSX}
                 onClick={() => {
                   trackEvent("Button", "Click", "Explore");
                   navigate("/products");
@@ -131,7 +116,7 @@ const About = () => {
                   event.preventDefault();
                   window
                     .open(
-                      "https://google.accredible.com/profile/aingaran/wallet",
+                      "https://www.credly.com/users/aingaran-elango/badges",
                       "_blank",
                     )
                     ?.focus();
